@@ -9,8 +9,6 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
-/* --- HEADER --- */
 .header {
   display: flex;
   flex-direction: column;
@@ -39,7 +37,6 @@
   font-weight: 400;
 }
 
-/* --- MAIN LAYOUT --- */
 .main {
   width: 100%;
   max-width: var(--content-width);
@@ -49,7 +46,6 @@
   margin-bottom: 100px;
 }
 
-/* --- CARD STYLES --- */
 .card {
   border: 2px solid var(--accent-color);
   background-color: var(--bg-color);
@@ -153,7 +149,6 @@
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
-/* --- SAVE BUTTON (FOOTER) --- */
 .save-button {
   width: 100%;
   max-width: var(--content-width);
@@ -172,7 +167,6 @@
   }
 }
 
-/* --- DIALOG --- */
 .dialog {
   border: 2px solid var(--accent-color);
   padding: 30px;
@@ -206,4 +200,49 @@
 .dialog__button {
   width: 100%;
   text-transform: uppercase;
+}
+.filter-grayscale {
+  filter: grayscale(1);
+}
+
+.filter-saturate {
+  filter: saturate(2.5);
+}
+
+.filter-invert {
+  filter: invert(0.8);
+}
+
+.filter-sepia {
+  filter: sepia(1);
+}
+
+.filter-blur {
+  filter: blur(2px);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.filter-contrast {
+  filter: contrast(150%);
+}
+
+.filter-brightness {
+  filter: brightness(1.5);
+}
+
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }
+
+  .header {
+    padding: 25px;
+  }
+
+  .dialog {
+    padding: 15px;
+  }
 }

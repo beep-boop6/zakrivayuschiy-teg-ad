@@ -21,6 +21,26 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  
+  /* Градиентный фон с сеткой и градиентом */
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      var(--bg-color),
+      var(--bg-color) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      var(--bg-color),
+      var(--bg-color) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, #e7e7e7 0.01%, #1a1a1a 100%);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body {

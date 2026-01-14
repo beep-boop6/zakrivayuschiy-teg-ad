@@ -10,7 +10,200 @@
 
 */
 
-.page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+/* --- HEADER --- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  width: 100%;
+  max-width: var(--content-width);
+  min-height: var(--header-height);
+  margin: 100px 0;
+  padding: 20px;
+}
+
+.header__title {
+  /* Резиновый шрифт: мин 3rem, макс 4rem, зависит от ширины окна */
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  margin-bottom: 20px;
+}
+
+.header__description {
+  /* Резиновый подзаголовок */
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-weight: 400;
+}
+
+/* --- MAIN LAYOUT --- */
+.main {
+  width: 100%;
+  max-width: var(--content-width);
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Отступ между карточками */
+  margin-bottom: 100px;
+}
+
+/* --- CARD STYLES --- */
+.card {
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+  padding: 25px;
+}
+
+.card__title {
+  font-family: var(--main-font);
+  font-variation-settings: "wght" 700; /* Жирный через вариативность */
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Обертка картинки и лейбла */
+.card__image-container {
+  position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Стили лейбла (водяного знака) */
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: var(--accent-color);
+  opacity: 0.5;
+  mix-blend-mode: hard-light; /* Режим наложения */
+  z-index: 1;
+  
+  /* Фоллбэк: тень текста, если text-stroke не работает */
+  text-shadow: 
+    -1px -1px 0 #fff, 
+    1px -1px 0 #fff, 
+    -1px 1px 0 #fff, 
+    1px 1px 0 #fff;
+}
+
+/* Проверка поддержки text-stroke */
+@supports((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
+  }
+}
+
+/* Контент карточки */
+.card__content {
+  padding-top: 25px;
+}
+
+.card__text {
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 25px;
+}
+
+/* Кнопки */
+.card__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.card__icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.like-icon {
+  cursor: pointer;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--button-bg);
+  border: 2px solid var(--accent-color);
+  padding: 10px 20px;
+  position: relative;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: var(--text-color);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Базовый ховер (будет доработан в шаге 7) */
+.button:hover {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* --- SAVE BUTTON (FOOTER) --- */
+.save-button {
+  width: 100%;
+  max-width: var(--content-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: var(--bg-color);
+}
+
+@media (min-width: 375px) {
+  .save-button {
+    flex-direction: row;
+  }
+}
+
+/* --- DIALOG --- */
+.dialog {
+  border: 2px solid var(--accent-color);
+  padding: 30px;
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  max-width: 350px;
+  width: 100%;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dialog__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dialog__button {
+  width: 100%;
+  text-transform: uppercase;
 }

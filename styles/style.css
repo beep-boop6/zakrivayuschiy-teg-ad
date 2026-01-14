@@ -237,7 +237,7 @@
 }
 
 .filter-saturate {
-  filter: saturate(2.5);
+  filter: saturate(2.5) hue-rotate(30deg);
 }
 
 .filter-invert {

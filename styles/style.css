@@ -1,14 +1,3 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
 .header {
   display: flex;
   flex-direction: column;
@@ -230,17 +219,22 @@
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
+/* Фиксированная ширина для кнопки Like/Unlike */
+.card__like-button {
+  min-width: 130px;
+}
+
 .save-button {
-  width: 335px; /* Ширина по макету */
-  height: 51px; /* Высота по макету */
+  width: 335px;
+  height: 51px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Немного уменьшил гэп, чтобы влезло аккуратно */
-  padding: 0; /* Паддинги могут мешать фиксированной высоте */
+  gap: 8px;
+  padding: 0;
   background-color: var(--bg-color);
-  margin: 0 auto; /* Центрируем кнопку в потоке */
+  margin: 0 auto;
 }
 
 /* Стилизуем SVG внутри кнопки сохранения */
@@ -286,6 +280,7 @@
   width: 100%;
   text-transform: uppercase;
 }
+
 .filter-grayscale {
   filter: grayscale(1);
 }

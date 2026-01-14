@@ -1,11 +1,100 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+.like-icon {
+  cursor: pointer;
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+.like-icon .heart {
+  transform-origin: center;
+}
 
-*/
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+
+/* При наведении заполняем сердцевину и тело */
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* При нажатии сердце становится красным */
+
+.like-icon:active .core {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-main-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* Когда лайк нажат — сердце красное и пульсирует */
+
+.like-icon.is-liked .core {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-main-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-main-color);
+  transition: fill 0.3s linear 0.06s;
+}
+
+/* Анимация пульсации сердца при клике */
+.like-icon.is-liked .heart {
+  animation: heartbeat 0.3s ease-in 0.1s alternate;
+}
+
+/* Анимация искр при лайке */
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s alternate;
+}
+
+/* Пульсация сердца */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Вспышка искр */
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    fill: var(--sparks-color);
+  }
+  100% {
+    opacity: 0;
+  }
+}
